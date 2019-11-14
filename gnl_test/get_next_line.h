@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 10:38:19 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/09 17:15:39 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/14 14:23:17 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int	get_next_line(int fd, char **line);
 int	ft_index(char const *s, char c);
 char	*ft_strndup(const char *s, long n);
-char	*ft_strnjoin(char const *s1, char const *s2, long n);
+char	*ft_strnjoin(char *s1, char const *s2, long n);
 void	*ft_memmove(void *dest, const void *src, unsigned long n);
 
 /* TESTING PURPOSE FUNCTIONS, REMOVE WHEN COMPLETE */

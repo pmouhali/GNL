@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:21:58 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/09 17:25:17 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/14 16:15:44 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ int	ft_index(char const *s, char c)
 	while (s[++i])
 		if (s[i] == c)
 			return (i);
-//	if (s[i] == 0 && c == 0)
-//		return (i);
 	return (-1);
 }
 
@@ -107,29 +105,28 @@ void	*ft_memmove(void *dest, const void *src, unsigned long n)
 		}
 	return (dest);
 }
-
-char	*ft_strnjoin(char const *s1, char const *s2, long n)
+/* version with both -1 and free logic included */
+char	*ft_strnjoin(char *s1, char const *s2, long n)
 {
 	char *new;
 	unsigned long i;
 	long j;
 
-	if (n == -1)
-		j = ft_strlen(s2);
-	else
-	{
-		j = 0;
-		while (j < n && s2[j])
-			j++;
-	}
-	if (!(new = (char*)malloc(sizeof(char) * (ft_strlen(s1) + j + 1))))
+	i = s1 == ((void*)0) ? 0 : ft_strlen(s1);	
+	j = ft_strlen(s2);
+	if (n == -1 || n > j)
+		n = j;
+	if (!(new = (char*)malloc(sizeof(char) * (i + n + 1))))
 		return (NULL);
-	i = -1;
-	while (s1[++i] != '\0')
-		new[i] = s1[i];
-	n = j;
+	if (s1)
+	{
+		i = -1;
+		while (s1[++i] != '\0')
+			new[i] = s1[i];
+		free(s1);
+	}	
 	j = -1;
-	while (s2[++j] != '\0' && j < n)
+	while (j < n && s2[++j] != '\0')
 		new[i + j] = s2[j];
 	new[i + j] = '\0';
 	return (new);

@@ -47,11 +47,4 @@ int		main(void)
 	s = ft_strnjoin(buf, "", 0);
 	ft_putendl_fd(s, 1);
 	free(s);
-
-	buf = strdup("chelou");
-	ft_putendl_fd("0 size :", 1);
-	ft_putendl_fd("chelou", 1);
-	s = ft_strnjoin(buf, "bite", 0);
-	ft_putendl_fd(s, 1);
-	free(s);
 }
