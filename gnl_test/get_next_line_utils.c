@@ -6,7 +6,7 @@
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:21:58 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/14 16:15:44 by pmouhali         ###   ########.fr       */
+/*   Updated: 2019/11/15 10:58:57 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	*ft_memmove(void *dest, const void *src, unsigned long n)
 		}
 	return (dest);
 }
-/* version with both -1 and free logic included */
+
 char	*ft_strnjoin(char *s1, char const *s2, long n)
 {
 	char *new;

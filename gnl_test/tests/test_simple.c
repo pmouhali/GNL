@@ -37,3 +37,17 @@ int	main(int ac, char **av)
 
 	close(fd);
 }
+
+/*
+** if last line is some chrs then \n then EOF, have to return 1 and set the line
+** if last line is some chrs then EOF, have to return 0 and set the line
+** if gnl is recalled after read finished, have to return 0 and empty line
+** if BUFFER_SIZE is 0, have to return 0
+** if BUFFER_SIZE is negative, have to return -1
+** if fd is negative or line is null or fd is invalid, have to return -1
+**
+** random tests : must not crash
+** ./a.out /dev/random
+** ./a.out /dev/null
+** ./a.out /dev/zero
+*/
