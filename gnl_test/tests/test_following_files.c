@@ -21,16 +21,16 @@ int	main(int ac, char **av)
 		while ((ret = get_next_line(fd, &line)))
 		{
 			printf("[%d] %s\n", ret, line);
+			free(line);
 			if (ret == -1)
 				return (0);
 			t += ret;
-			free(line);
 		}
 		printf("[%d] %s\n", ret, line);
+			free(line);
 			if (ret == -1)
 				return (0);
 			t += ret;
-			free(line);
 	
 		printf("=== Count === %d\n", t);
 	
