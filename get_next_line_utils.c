@@ -5,61 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmouhali <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/07 15:21:58 by pmouhali          #+#    #+#             */
-/*   Updated: 2019/11/15 10:58:57 by pmouhali         ###   ########.fr       */
+/*   Created: 2019/11/15 15:16:41 by pmouhali          #+#    #+#             */
+/*   Updated: 2019/11/15 15:18:38 by pmouhali         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-/* TESTING PURPOSE ONLY, REMOVE FOR PUSH */
-
-void	ft_putendl_fd(char const *s, int fd)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
-	write(fd, "\n", 1);
-}
-
-void	ft_putchar_fd(char c, int fd) { write(fd, &c, 1); }
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		n *= -1;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(((n % 10) + 48), fd);
-	}
-	if (n < 10)
-		ft_putchar_fd((n + 48), fd);
-}
-
-void	ft_putstr_fd(const char *s, int fd)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	write(fd, s, i);
-}
-
-/* DO NOT REMOVE THOSE  */
-int	ft_index(char const *s, char c)
+int				ft_index(char const *s, char c)
 {
 	int i;
 
@@ -80,9 +33,9 @@ unsigned long	ft_strlen(const char *s)
 	return (i);
 }
 
-void	*ft_memmove(void *dest, const void *src, unsigned long n)
+void			*ft_memmove(void *dest, const void *src, unsigned long n)
 {
-	unsigned long				i;
+	unsigned long		i;
 	unsigned char		*cdest;
 	const unsigned char	*csrc;
 
@@ -106,13 +59,13 @@ void	*ft_memmove(void *dest, const void *src, unsigned long n)
 	return (dest);
 }
 
-char	*ft_strnjoin(char *s1, char const *s2, long n)
+char			*ft_strnjoin(char *s1, char const *s2, long n)
 {
-	char *new;
-	unsigned long i;
-	long j;
+	long			j;
+	char			*new;
+	unsigned long	i;
 
-	i = s1 == ((void*)0) ? 0 : ft_strlen(s1);	
+	i = s1 == ((void*)0) ? 0 : ft_strlen(s1);
 	j = ft_strlen(s2);
 	if (n == -1 || n > j)
 		n = j;
@@ -124,7 +77,7 @@ char	*ft_strnjoin(char *s1, char const *s2, long n)
 		while (s1[++i] != '\0')
 			new[i] = s1[i];
 		free(s1);
-	}	
+	}
 	j = -1;
 	while (j < n && s2[++j] != '\0')
 		new[i + j] = s2[j];
